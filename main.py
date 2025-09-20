@@ -10,10 +10,10 @@ import mediapipe as mp
 from gtts import gTTS
 
 # Paths
-DATASET_DIR = r"C:\Users\tzuyu\OneDrive\Desktop\dataset"
-DB_PATH = r"C:\Users\tzuyu\OneDrive\Desktop\new\face_db.pkl"
-MODEL_PATH = r"C:\Users\tzuyu\Downloads\antelopev2\antelopev2\glintr100.onnx"
-SAVE_DIR = r"C:\Users\tzuyu\OneDrive\Desktop\image"
+DATASET_DIR = r"C:\Users\OneDrive\Desktop\dataset"
+DB_PATH = r"C:\Users\OneDrive\Desktop\new\face_db.pkl"
+MODEL_PATH = r"C:\Users\Downloads\antelopev2\antelopev2\glintr100.onnx"
+SAVE_DIR = r"C:\Users\OneDrive\Desktop\image"
 os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
 os.makedirs(SAVE_DIR, exist_ok=True)
 
@@ -22,7 +22,7 @@ FACE_CASCADE = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fronta
 EYE_CASCADE = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_eye.xml")
 
 # Constants
-THRESHOLD = 0.45
+THRESHOLD = 0.65
 INPUT_SIZE = 112
 
 # ✅ MediaPipe Hands
@@ -231,3 +231,4 @@ if __name__ == "__main__":
     session = create_session(MODEL_PATH)
     database = build_database(session, DATASET_DIR, DB_PATH)
     recognize_realtime(session, database)
+
